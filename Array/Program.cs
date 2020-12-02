@@ -6,19 +6,21 @@ namespace Array
     {
         static void Main(string[] args)
         {
-           int[,] myArray = new int[5, 6];
-            int height = myArray.GetLength(0);
-            int width = myArray.GetLength(1);
-            for (int y = 0;y < height; y++)
+            Console.Write("Введите кол-во цифр в строку:\t");
+            int height = int.Parse(Console.ReadLine());
+            Console.Write("Введите кол-во цифр в столбец:\t");
+            int width = int.Parse(Console.ReadLine());
+            int[,] myArray = new int[height, width];
+            for (int y = 0; y < myArray.GetLength(0); y++)
             {
-                for (int x = 0;x< width; x++)
+                for (int x = 0; x < myArray.GetLength(1); x++)
                 {
-                    Console.Write(myArray [y,x] + " ");
+                    Console.Write(myArray[y,x] + " ");
                 }
                 Console.WriteLine();
             }
-                         
-        Console.ReadKey();
+
+            Console.ReadKey();
         }
     }
 }
