@@ -11,6 +11,14 @@ namespace Array
             Console.Write("Введите кол-во цифр в столбец:\t");
             int width = int.Parse(Console.ReadLine());
             int[,] myArray = new int[height, width];
+            Random ran = new Random();
+            for (int y = 0; y < myArray.GetLength(0); y++)
+            {
+                for (int x = 0; x < myArray.GetLength(1); x++)
+                {
+                    myArray[y, x] = ran.Next(10);
+                }
+            }
             for (int y = 0; y < myArray.GetLength(0); y++)
             {
                 for (int x = 0; x < myArray.GetLength(1); x++)
