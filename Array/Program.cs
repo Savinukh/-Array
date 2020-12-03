@@ -17,10 +17,10 @@ namespace Array
             width = int.Parse(Console.ReadLine());
             Console.WriteLine();
             RandommyArray();
-           
+            SortingmyArrayIncrease();
 
 
-            
+
         }
         static void RandommyArray()
         {
@@ -30,7 +30,7 @@ namespace Array
             {
                 for (int x = 0; x < myArray.GetLength(1); x++)
                 {
-                    myArray[y, x] = ran.Next(10);
+                    myArray[y, x] = ran.Next(0, 10);
                 }
             }
             for (int y = 0; y < myArray.GetLength(0); y++)
@@ -45,9 +45,12 @@ namespace Array
             Console.WriteLine("\n--------------------------------------------");
             Console.ResetColor();
 
-            Console.ReadKey();
         }
-        
+        static void SortingmyArrayIncrease()
+        {
 
+        }
+
+        
     }
 }
