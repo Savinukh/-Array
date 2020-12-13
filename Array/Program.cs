@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace Array
 {
@@ -10,6 +11,7 @@ namespace Array
         static int[,] myArray = new int[width, height];
         static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("\nВведите кол-во элементов в строке:\t");
             height = int.Parse(Console.ReadLine());
@@ -17,11 +19,11 @@ namespace Array
             width = int.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.WriteLine();
-            RandomMyArray(myArray, width, height);
+            RandomMyArray(out myArray, width, height);
             ShowUp1();
             Console.ReadKey();
         }
-        static void RandomMyArray(int[,] array, int width, int height)
+        static void RandomMyArray(out int[,] array, int width, int height)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("--------------------------------------------");
