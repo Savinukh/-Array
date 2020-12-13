@@ -8,9 +8,10 @@ namespace Array
     {
         static int height = 0;
         static int width = 0;
-        static int[,] myArray = new int[width, height];
+       
         static void Main()
         {
+            int[,] myArray = new int[width, height];
             Console.OutputEncoding = Encoding.UTF8;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("\nВведите кол-во элементов в строке:\t");
@@ -20,7 +21,7 @@ namespace Array
             Console.ResetColor();
             Console.WriteLine();
             RandomMyArray(out myArray, width, height);
-            ShowUp1();
+            ShowUp1(myArray);
             Console.ReadKey();
         }
         static void RandomMyArray(out int[,] array, int width, int height)
@@ -30,14 +31,14 @@ namespace Array
             Console.ResetColor();
             array = new int[width, height];
             Random ran = new Random();
-            for (int y = 0; y < myArray.GetLength(0); y++)
+            for (int y = 0; y < array.GetLength(0); y++)
             {
-                for (int x = 0; x < myArray.GetLength(1); x++)
+                for (int x = 0; x < array.GetLength(1); x++)
                 {
                     array[y, x] = ran.Next(0, 10);
                 }
             }
-            ShowUp();
+            ShowUp(array);
 
             var list = array.Cast<int>().ToList();
             list.Sort();
@@ -50,16 +51,16 @@ namespace Array
                     Part++;
                 }
             }
-            ShowUp();
+            ShowUp(array);
         }
-        static void ShowUp()
+        static void ShowUp(int[,] array)
         {
             Console.WriteLine();
-            for (int y = 0; y < myArray.GetLength(0); y++)
+            for (int y = 0; y < array.GetLength(0); y++)
             {
-                for (int x = 0; x < myArray.GetLength(1); x++)
+                for (int x = 0; x < array.GetLength(1); x++)
                 {
-                    Console.Write(myArray[y, x] + " ");
+                    Console.Write(array[y, x] + " ");
                 }
                 Console.WriteLine();
             }
@@ -67,25 +68,25 @@ namespace Array
             Console.WriteLine("\n--------------------------------------------");
             Console.ResetColor();
         }
-       static void ShowUp1()
+       static void ShowUp1(int[,] array)
         {
             Console.WriteLine();
-            var list = myArray.Cast<int>().ToList();
+            var list = array.Cast<int>().ToList();
             list.Reverse();
             int Part = 0;
-            for (int y = 0; y < myArray.GetLength(0); y++)
+            for (int y = 0; y < array.GetLength(0); y++)
             {
-                for (int x = 0; x < myArray.GetLength(1); x++)
+                for (int x = 0; x < array.GetLength(1); x++)
                 {
-                    myArray[y, x] = list[Part];
+                    array[y, x] = list[Part];
                     Part++;
                 }
             }
-            for (int y = 0; y < myArray.GetLength(0); y++)
+            for (int y = 0; y < array.GetLength(0); y++)
             {
-                for (int x = 0; x < myArray.GetLength(1); x++)
+                for (int x = 0; x < array.GetLength(1); x++)
                 {
-                    Console.Write(myArray[y, x] + " ");
+                    Console.Write(array[y, x] + " ");
                 }
                 Console.WriteLine();
             }
