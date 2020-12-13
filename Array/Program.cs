@@ -17,34 +17,34 @@ namespace Array
             width = int.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.WriteLine();
-            RandomMyArray();
+            RandomMyArray(myArray, width, height);
             ShowUp1();
             Console.ReadKey();
         }
-        static void RandomMyArray()
+        static void RandomMyArray(int[,] array, int width, int height)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("--------------------------------------------");
             Console.ResetColor();
-            myArray = new int[width, height];
+            array = new int[width, height];
             Random ran = new Random();
             for (int y = 0; y < myArray.GetLength(0); y++)
             {
                 for (int x = 0; x < myArray.GetLength(1); x++)
                 {
-                    myArray[y, x] = ran.Next(0, 10);
+                    array[y, x] = ran.Next(0, 10);
                 }
             }
             ShowUp();
 
-            var list = myArray.Cast<int>().ToList();
+            var list = array.Cast<int>().ToList();
             list.Sort();
             int Part = 0;
-            for (int y = 0; y < myArray.GetLength(0); y++)
+            for (int y = 0; y < array.GetLength(0); y++)
             {
-                for (int x = 0; x < myArray.GetLength(1); x++)
+                for (int x = 0; x < array.GetLength(1); x++)
                 {
-                    myArray[y, x] = list[Part];
+                    array[y, x] = list[Part];
                     Part++;
                 }
             }
